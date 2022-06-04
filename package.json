@@ -1,0 +1,19 @@
+{
+  "name": "tajiri-mpesa-time",
+  "version": "1.0.0",
+  "description": "Package for getting the mpesa time stamp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arthur-codeX/tajiri-mpesa-time.git"
+  },
+  "author": "Arthur-codeX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arthur-codeX/tajiri-mpesa-time/issues"
+  },
+  "homepage": "https://github.com/Arthur-codeX/tajiri-mpesa-time#readme"
+}
