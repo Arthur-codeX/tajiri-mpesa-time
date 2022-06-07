@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Arthur-codeX/tajiri-mpesa-time/issues"
   },
-  "homepage": "https://github.com/Arthur-codeX/tajiri-mpesa-time#readme"
+  "homepage": "https://github.com/Arthur-codeX/tajiri-mpesa-time#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }

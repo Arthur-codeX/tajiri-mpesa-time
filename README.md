@@ -14,18 +14,79 @@ This is a simple package that generates the timestamp in required format from da
 
 npm install tajiri-mpesa-time
 
+---
+
 ### Usage
 
-    const  mpesa_time = require("tajiri-mpesa-time");
-    let  gmt=+3
+### Using Async Await:
 
-    console.log(mpesa_time(gmt));
+```javascript
+const time = require("tajiri-mpesa-time");
 
-> The mpesa time takes in a variable gmt which by default is +3. hours.
+const timeZone = "Africa";
+const Area = "Nairobi";
+
+const getTime = async () => {
+  let t = await time();
+  console.log(t);
+};
+
+// Using Async Await
+// The time function requires tow arguments
+//time(arg1,arg2)
+//arg1 by default is the Africa
+//arg2 by default is Nairobi
+
+const getTime2 = async () => {
+  let t = await time(timeZone, Area);
+  console.log(t);
+};
+
+getTime();
+getTime2();
+```
+
+### Using Promises
+
+````javascript
+```javascript
+const time = require("tajiri-mpesa-time");
+
+const timeZone = "Africa";
+const Area = "Nairobi";
+```;
+
+// The time function requires tow arguments
+//time(arg1,arg2)
+//arg1 by default is the Africa
+//arg2 by default is Nairobi
+
+// Using Promises
+time(timeZone, Area)
+  .then((t) => {
+    console.log(t);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+// The time function requires tow arguments
+//time(arg1,arg2)
+//arg1 by default is the Africa
+//arg2 by default is Nairobi
+
+// Using Promises
+time()
+  .then((t) => {
+    console.log(t);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+````
 
 ## References
 
 > get the application credentials from daraja
 
 [daraja]](https://developer.safaricom.co.ke/)
-[gmt](https://www.google.com/search?q=gmt&oq=gmt&aqs=chrome..69i57j35i39l2j0i433i512j0i433i457i512j0i402j0i512l4.1915j0j1&sourceid=chrome&ie=UTF-8)
