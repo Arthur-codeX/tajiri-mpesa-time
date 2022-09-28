@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 const { formatInTimeZone } = require("date-fns-tz");
 
 const mpesa_time = (timeZone = "Africa", Area = "Nairobi") => {
