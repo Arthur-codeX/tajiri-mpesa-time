@@ -1,36 +1,37 @@
 const axios = require("axios");
 
-const mpesa_time = async (timeZone = "Africa", Area = "Nairobi") => {
-  try {
-    let res = await axios.get(
-      `http://worldtimeapi.org/api/timezone/${timeZone}/${Area}`
-    );
-    timeElapsed = res.data.unixtime * 1000;
-    const today = new Date(timeElapsed);
+const { formatInTimeZone } = require("date-fns-tz");
 
-    let YYYY = today.getFullYear();
-    let MM = today.getMonth() + 1;
-    let DD = today.getDate();
-    let HH = today.getHours();
-    let mm = today.getMinutes();
-    let ss = today.getSeconds();
+const mpesa_time = (timeZone = "Africa", Area = "Nairobi") => {
+  let t = formatInTimeZone(
+    Date.now(),
+    `${timeZone}/${Area}`,
+    "yyyy-MM-dd HH:mm:ss"
+  );
 
-    t = `${YYYY}${doubleDig(MM)}${doubleDig(DD)}${doubleDig(HH)}${doubleDig(
-      mm
-    )}${doubleDig(ss)}`;
-    t = parseInt(t);
-    return t;
-  } catch (e) {
-    if (e.response.data != null) {
-      throw new Error(e.response.data);
-    } else {
-      throw new Error(e.message);
-    }
-  }
+  let newDate = new Date(t);
+  let year = newDate.getFullYear();
+  let month = doubleDig(newDate.getMonth() + 1);
+  let date = doubleDig(newDate.getDate());
+  let hours = doubleDig(newDate.getHours());
+  let minutes = doubleDig(newDate.getMinutes());
+  let seconds = doubleDig(newDate.getSeconds());
+  // console.log(year);
+  // console.log(month);
+  // console.log(date);
+  // console.log(hours);
+  // console.log(minutes);
+  // console.log(seconds);
+
+  // // return t;
+  // console.log(year + month + date + hours + minutes + seconds);
+  return year + month + date + hours + minutes + seconds;
 };
 
 const doubleDig = (dd) => {
   return dd < 10 ? "0" + dd : "" + dd;
 };
 
-module.exports = mpesa_time;
+console.log(mpesa_time());
+
+// module.exports = mpesa_time;
