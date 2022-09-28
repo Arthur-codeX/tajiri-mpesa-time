@@ -32,6 +32,4 @@ const doubleDig = (dd) => {
   return dd < 10 ? "0" + dd : "" + dd;
 };
 
-console.log(mpesa_time());
-
-// module.exports = mpesa_time;
+module.exports = mpesa_time;
